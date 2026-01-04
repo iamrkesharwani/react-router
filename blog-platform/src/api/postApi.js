@@ -1,10 +1,11 @@
-const BASE_URL = 'https://dummyjson.com/';
+const BASE_URL = 'https://dummyjson.com';
 
 export async function fetchPosts() {
   const res = await fetch(`${BASE_URL}/posts`);
   if (!res.ok) throw new Error('Failed to fetch posts');
   const data = await res.json();
-  return data;
+  console.log(data);
+  return data.posts;
 }
 
 export async function fetchPostById(id) {

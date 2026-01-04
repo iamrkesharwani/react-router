@@ -4,7 +4,7 @@ import AppRoutes from './routes/AppRoutes';
 
 const App = () => {
   return (
-    <div>
+    <div className='min-h-screen bg-slate-50'>
       <Navbar />
       <BreadCrumbs />
       <AppRoutes />
