@@ -7,7 +7,7 @@ import Error from '../components/Error';
 import { MoveRight } from 'lucide-react';
 
 const Home = () => {
-  const { data, isLoading, isError, error } = useQuery({
+  const { data, isLoading, isError } = useQuery({
     queryKey: ['posts'],
     queryFn: fetchPosts,
   });
