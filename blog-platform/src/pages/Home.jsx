@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { fetchPosts } from '../api/postApi';
+import { Link } from 'react-router-dom';
 import Loading from '../components/Loading';
 import Error from '../components/Error';
 
@@ -11,14 +12,8 @@ const Home = () => {
     queryFn: fetchPosts,
   });
 
-  if (isLoading) {
-    return <Loading />;
-  }
-
-  if (isError) {
-    console.log(error);
-    return <Error />;
-  }
+  if (isLoading) return <Loading />;
+  if (isError) return <Error />;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
@@ -58,10 +53,13 @@ const Home = () => {
                   {item.body}
                 </p>
 
-                <button className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg transition-all duration-200 hover:gap-3 w-full justify-center">
+                <Link
+                  to={`/${item.id}`}
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg transition-all duration-200 hover:gap-3 w-full justify-center"
+                >
                   Read more
                   <MoveRight />
-                </button>
+                </Link>
               </div>
             </article>
           ))}
