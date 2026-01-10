@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../auth/useAuth';
 import { useState } from 'react';
+import Error from '../components/Error';
 
 const Login = () => {
   const { login, error, isAuthenticated } = useAuth();
@@ -39,7 +40,7 @@ const Login = () => {
         <button type="submit">Login</button>
       </form>
 
-      {error && <p className="text-red-600">{error}</p>}
+      {error && <p className="text-red-600">{<Error />}</p>}
     </div>
   );
 };
