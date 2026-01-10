@@ -16,18 +16,18 @@ const AppRoutes = () => {
       <Route element={<PublicLayout />}>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/:id" element={<PostDetail />} />
+        <Route path="/post/:id" element={<PostDetail />} />
+        <Route path="*" element={<NotFound />} />
       </Route>
 
       <Route element={<ProtectedRoutes />}>
         <Route element={<ProtectedLayouts />}>
+          <Route path="/" element={<Home />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/settings" element={<Settings />} />
         </Route>
       </Route>
-
-      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 };
